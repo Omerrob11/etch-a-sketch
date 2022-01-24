@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch A sketch</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Tomorrow:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="title">Etch a sketch</h1>
+    </header>
+    <main class="main">
+      <div class="user-inputs">
+        <div class="user-inputs__secondary__title">
+          <h2 class="secondary-title">Click inside grid to toggle pen</h2>
+        </div>
+
+        <div class="user-inputs__color__picker">
+          <input type="color" id="user-inputs__color__pick" value="#4e8397" />
+          <label class="colorBtn" for="user-inputs__color__pick"> </label>
+        </div>
+
+        <div class="user-inputs__btns">
+          <div class="user-inputs__btns__picks">
+            <div class="btn-flex">
+              <button class="user-inputs__btn__picks__color btn">
+                Color mode
+              </button>
+            </div>
+            <div class="btn-flex">
+              <button class="user-inputs__btn__picks__color btn">
+                Rainbow mode
+              </button>
+            </div>
+          </div>
+
+          <div class="game-function">
+            <div class="btn-flex">
+              <button class="game-function__btn btn">Eraser</button>
+            </div>
+            <div class="btn-flex">
+              <button class="game-function__btn btn">Clear</button>
+            </div>
+            <div class="btn-flex">
+              <button class="game-function__btn btn">New Grid</button>
+            </div>
+
+            <div class="game-function__grid__setup">
+              <p class="game-function__grid__setup__number text-medium">
+                16 X 16
+              </p>
+              <input type="range" min="1" max="100" value="50" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="grid"></div>
+    </main>
+  </body>
+</html>
