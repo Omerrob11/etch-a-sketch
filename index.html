@@ -50,14 +50,26 @@
               <button class="game-function__btn btn">Clear</button>
             </div>
             <div class="btn-flex">
-              <button class="game-function__btn btn">New Grid</button>
+              <button
+                class="game-function__btn btn game-function__new__grid__btn"
+              >
+                New Grid
+              </button>
             </div>
 
             <div class="game-function__grid__setup">
-              <p class="game-function__grid__setup__number text-medium">
-                16 X 16
-              </p>
-              <input type="range" min="1" max="100" value="50" />
+              <label
+                for="range-val"
+                class="game-function__range__label text-medium"
+                >16 X 16</label
+              >
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="16"
+                class="range-val"
+              />
             </div>
           </div>
         </div>
