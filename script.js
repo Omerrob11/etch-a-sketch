@@ -6,8 +6,15 @@ const colorPickerValue = document.querySelector("#user-inputs__color__pick");
 const colorPickerBtnBackround = document.querySelector(".colorBtn");
 const colorModeBtn = document.querySelector(".color-mode__btn");
 const rainbowModeBtn = document.querySelector(".rainbow-mode__btn");
-
+const eraserModeBtn = document.querySelector(".eraser-mode__btn");
+const clearModeBtn = document.querySelector(".clear-mode__btn");
+const pageBackgroundColor =
+  document.querySelector("#body").style.backgroundColor;
+console.log(pageBackgroundColor);
+// Logic Based Variables
 let isRandomColorChosen = false;
+let isEraserModeChosen = false;
+
 // Event Listeners
 
 colorPickerValue.addEventListener("input", changeColorPickerBtnBackground);
@@ -15,6 +22,7 @@ newGridBtn.addEventListener("click", createNewGrid);
 range.addEventListener("input", changeRangeLabel);
 colorModeBtn.addEventListener("click", changeIsRandomColorChosen);
 rainbowModeBtn.addEventListener("click", changeIsRandomColorChosen);
+eraserModeBtn.addEventListener("click", changeIsEraserModeChosen);
 
 // Logic
 
@@ -42,7 +50,9 @@ function createNewGrid(e) {
 
 function chnageCellBackground(e) {
   let cellBackgroundColor = null;
-  if (!isRandomColorChosen) {
+  if (isEraserModeChosen) {
+    e.target.style.backgroundColor = pageBackgroundColor;
+  } else if (!isRandomColorChosen) {
     cellBackgroundColor = colorPickerValue.value;
     e.target.style.backgroundColor = cellBackgroundColor;
   } else {
@@ -70,6 +80,11 @@ function changeIsRandomColorChosen(e) {
   e.target.textContent.trim().toLowerCase() === "color mode"
     ? (isRandomColorChosen = false)
     : (isRandomColorChosen = true);
+  if (isEraserModeChosen === true) isEraserModeChosen = false;
+}
+
+function changeIsEraserModeChosen(e) {
+  isEraserModeChosen = true;
 }
 // Utility Functions
 
