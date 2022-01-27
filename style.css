@@ -203,10 +203,11 @@ main {
 .colorBtn:hover,
 #user-inputs__color__pick:focus + .colorBtn {
   border-color: black;
+  filter: brightness(70%);
 }
 
 #user-inputs__color__pick:active + .colorBtn {
-  filter: brightness(90%);
+  filter: brightness(50%);
 }
 
 /* User inputs btns picks */
