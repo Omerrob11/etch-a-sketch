@@ -225,6 +225,13 @@ main {
   margin-bottom: 16px;
 }
 
+/* Game function grid setpup */
+.game-function__grid__setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /*** Grid ***/
 #grid {
   display: grid;
