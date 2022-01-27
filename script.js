@@ -4,6 +4,19 @@ const rangeLabel = document.querySelector(".game-function__range__label");
 const newGridBtn = document.querySelector(".game-function__new__grid__btn");
 const colorPickerValue = document.querySelector("#user-inputs__color__pick");
 const colorPickerBtnBackround = document.querySelector(".colorBtn");
+const colorModeBtn = document.querySelector(".color-mode__btn");
+const rainbowModeBtn = document.querySelector(".rainbow-mode__btn");
+
+let isRandomColorChosen = false;
+// Event Listeners
+
+colorPickerValue.addEventListener("input", changeColorPickerBtnBackground);
+newGridBtn.addEventListener("click", createNewGrid);
+range.addEventListener("input", changeRangeLabel);
+colorModeBtn.addEventListener("click", changeIsRandomColorChosen);
+rainbowModeBtn.addEventListener("click", changeIsRandomColorChosen);
+
+// Logic
 
 function createGrid(userRowNum = 16, userColNum = 16) {
   grid.style["grid-template-columns"] = `repeat(${userColNum},1fr)`;
@@ -20,12 +33,6 @@ function createGrid(userRowNum = 16, userColNum = 16) {
 
 createGrid(16, 16);
 
-// Event Listeners
-
-range.addEventListener("input", changeRangeLabel);
-colorPickerValue.addEventListener("input", changeColorPickerBtnBackground);
-newGridBtn.addEventListener("click", createNewGrid);
-
 function createNewGrid(e) {
   removeGridItems();
   let userRowNum = getRowNum();
@@ -33,14 +40,14 @@ function createNewGrid(e) {
   createGrid(userRowNum, userColNum);
 }
 
-function changeRangeLabel(e) {
-  let rangeNum = e.target.valueAsNumber;
-  rangeLabel.textContent = `${rangeNum} X ${rangeNum}`;
-}
-
 function chnageCellBackground(e) {
-  let cellBackgroundColor = colorPickerValue.value;
-  e.target.style.backgroundColor = cellBackgroundColor;
+  let cellBackgroundColor = null;
+  if (!isRandomColorChosen) {
+    cellBackgroundColor = colorPickerValue.value;
+    e.target.style.backgroundColor = cellBackgroundColor;
+  } else {
+    e.target.style.backgroundColor = getRandomColor();
+  }
 }
 
 function changeColorPickerBtnBackground(e) {
@@ -54,6 +61,16 @@ function removeGridItems() {
   }
 }
 
+function changeRangeLabel(e) {
+  let rangeNum = e.target.valueAsNumber;
+  rangeLabel.textContent = `${rangeNum} X ${rangeNum}`;
+}
+
+function changeIsRandomColorChosen(e) {
+  e.target.textContent.trim().toLowerCase() === "color mode"
+    ? (isRandomColorChosen = false)
+    : (isRandomColorChosen = true);
+}
 // Utility Functions
 
 function squareGrid(rowsNum) {
@@ -65,4 +82,13 @@ function getRowNum() {
 }
 function getColNum() {
   return +range.value;
+}
+
+function getRandomColor() {
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
