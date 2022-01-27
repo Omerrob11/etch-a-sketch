@@ -107,7 +107,6 @@ body {
 
 /* Buttons */
 .btn-flex {
-  border: 2px solid green;
   width: 180px;
   display: flex;
   justify-content: center;
@@ -140,12 +139,11 @@ body {
 
 /*** Header ***/
 .header {
-  padding-top: 16px;
+  padding-top: 32px;
 }
 /***  Wrapper ***/
 
 .wrapper {
-  border: 2px solid blue;
   width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -156,28 +154,24 @@ body {
 /*** Main ***/
 
 main {
-  border: 2px solid red;
   display: flex;
   justify-content: space-around;
-  margin-top: 40px;
+  margin-top: 64px;
 }
 
 /****** User inputs ******/
 
 .user-inputs {
-  border: 2px solid brown;
-  padding: 16px;
+  padding: 24px;
 }
 
 .user-inputs__secondary__title {
-  border: 2px solid green;
   margin-bottom: 16px;
   text-align: center;
 }
 
 /* Color Picker */
 .user-inputs__color__picker {
-  border: 2px solid blue;
   display: flex;
   justify-content: center;
   margin-bottom: 16px;
@@ -214,7 +208,6 @@ main {
 
 .user-inputs__btns__picks,
 .game-function {
-  border: 2px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -235,12 +228,11 @@ main {
 /*** Grid ***/
 #grid {
   display: grid;
-  border: 2px solid blue;
-  width: 960px;
-}
-
-.grid-item {
-  border: 2px solid red;
+  width: 720px;
+  margin-right: 24px;
+  background-color: #fff8ee;
+  box-shadow: 5px 5px 25px 10px #888888;
+  border-radius: 5px;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {

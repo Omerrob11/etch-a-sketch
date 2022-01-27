@@ -16,15 +16,19 @@ const CurrentModeTitle = document.querySelector(".current-mode-title");
 let isRandomColorChosen = false;
 let isEraserModeChosen = false;
 
-// Event Listeners
+// Initial setup
+window.addEventListener("load", startup, false);
 
-colorPickerValue.addEventListener("input", changeColorPickerBtnBackground);
-newGridBtn.addEventListener("click", createNewGrid);
-range.addEventListener("input", changeRangeLabel);
-colorModeBtn.addEventListener("click", changeIsRandomColorChosen);
-rainbowModeBtn.addEventListener("click", changeIsRandomColorChosen);
-eraserModeBtn.addEventListener("click", changeIsEraserModeChosen);
-clearModeBtn.addEventListener("click", clearGrid);
+function startup() {
+  createGrid(16, 16);
+  colorPickerValue.addEventListener("input", changeColorPickerBtnBackground);
+  newGridBtn.addEventListener("click", createNewGrid);
+  range.addEventListener("input", changeRangeLabel);
+  colorModeBtn.addEventListener("click", changeIsRandomColorChosen);
+  rainbowModeBtn.addEventListener("click", changeIsRandomColorChosen);
+  eraserModeBtn.addEventListener("click", changeIsEraserModeChosen);
+  clearModeBtn.addEventListener("click", clearGrid);
+}
 
 // Logic
 
@@ -41,9 +45,7 @@ function createGrid(userRowNum = 16, userColNum = 16) {
   }
 }
 
-createGrid(16, 16);
-
-function createNewGrid(e) {
+function createNewGrid() {
   removeGridItems();
   let userRowNum = getRowNum();
   let userColNum = getColNum();
