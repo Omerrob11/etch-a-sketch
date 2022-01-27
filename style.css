@@ -100,7 +100,9 @@ body {
 }
 
 .current-mode-title {
+  font-size: 24px;
   text-transform: capitalize;
+  color: #504538;
 }
 
 /* Buttons */
@@ -170,6 +172,7 @@ main {
 .user-inputs__secondary__title {
   border: 2px solid green;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 /* Color Picker */
@@ -230,4 +233,9 @@ main {
 
 .grid-item {
   border: 2px solid red;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: #845ec2;
 }
