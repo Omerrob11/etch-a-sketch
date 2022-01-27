@@ -10,6 +10,7 @@ const eraserModeBtn = document.querySelector(".eraser-mode__btn");
 const clearModeBtn = document.querySelector(".clear-mode__btn");
 const pageBackgroundColor =
   document.querySelector("#body").style.backgroundColor;
+const CurrentModeTitle = document.querySelector(".current-mode-title");
 
 // Logic Based Variables
 let isRandomColorChosen = false;
@@ -82,11 +83,17 @@ function changeIsRandomColorChosen(e) {
   e.target.textContent.trim().toLowerCase() === "color mode"
     ? (isRandomColorChosen = false)
     : (isRandomColorChosen = true);
+
+  e.target.textContent.trim().toLowerCase() === "color mode"
+    ? (CurrentModeTitle.textContent = "Current mode: color")
+    : (CurrentModeTitle.textContent = "Current mode: rainbow");
+
   if (isEraserModeChosen === true) isEraserModeChosen = false;
 }
 
 function changeIsEraserModeChosen(e) {
   isEraserModeChosen = true;
+  CurrentModeTitle.textContent = "Current mode: eraser";
 }
 
 function clearGrid() {

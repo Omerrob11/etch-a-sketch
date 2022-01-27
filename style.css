@@ -99,6 +99,10 @@ body {
   color: #4b4453;
 }
 
+.current-mode-title {
+  text-transform: capitalize;
+}
+
 /* Buttons */
 .btn-flex {
   border: 2px solid green;
