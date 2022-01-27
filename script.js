@@ -10,7 +10,7 @@ const eraserModeBtn = document.querySelector(".eraser-mode__btn");
 const clearModeBtn = document.querySelector(".clear-mode__btn");
 const pageBackgroundColor =
   document.querySelector("#body").style.backgroundColor;
-console.log(pageBackgroundColor);
+
 // Logic Based Variables
 let isRandomColorChosen = false;
 let isEraserModeChosen = false;
@@ -23,6 +23,7 @@ range.addEventListener("input", changeRangeLabel);
 colorModeBtn.addEventListener("click", changeIsRandomColorChosen);
 rainbowModeBtn.addEventListener("click", changeIsRandomColorChosen);
 eraserModeBtn.addEventListener("click", changeIsEraserModeChosen);
+clearModeBtn.addEventListener("click", clearGrid);
 
 // Logic
 
@@ -77,6 +78,7 @@ function changeRangeLabel(e) {
 }
 
 function changeIsRandomColorChosen(e) {
+  console.log(e);
   e.target.textContent.trim().toLowerCase() === "color mode"
     ? (isRandomColorChosen = false)
     : (isRandomColorChosen = true);
@@ -85,6 +87,13 @@ function changeIsRandomColorChosen(e) {
 
 function changeIsEraserModeChosen(e) {
   isEraserModeChosen = true;
+}
+
+function clearGrid() {
+  let gridNumOfChilds = grid.childNodes.length;
+  for (let i = gridNumOfChilds - 1; i >= 0; i--) {
+    grid.childNodes[i].style.backgroundColor = pageBackgroundColor;
+  }
 }
 // Utility Functions
 
