@@ -81,7 +81,6 @@ function changeRangeLabel(e) {
 }
 
 function changeIsRandomColorChosen(e) {
-  console.log(e);
   e.target.textContent.trim().toLowerCase() === "color mode"
     ? (isRandomColorChosen = false)
     : (isRandomColorChosen = true);
